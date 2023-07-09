@@ -2,6 +2,8 @@ package org.launchcode.skillstracker.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -27,7 +29,7 @@ public class SkillsController {
     public String displayForm() {
         return "<html>" +
                     "<body>" +
-                        "<form  method='post' action='listLanguages'>" +
+                        "<form  method='post' action='form'>" +
                             "<label>Name:</label>" +
                             "<input type='text' name='name'><br>" +
                             "<label>My favorite language:</label>" +
@@ -50,6 +52,20 @@ public class SkillsController {
                             "</select><br>" +
                             "<button type='submit'>Submit</button>" +
                         "</form>" +
+                    "</body>" +
+                "</html>";
+    }
+
+    @PostMapping("form")
+    public String listLanguages(@RequestParam String name, @RequestParam String first, @RequestParam String second, @RequestParam String third) {
+        return "<html>" +
+                    "<body>" +
+                        "<h1>" + name + "</h1>" +
+                            "<ol>" +
+                                "<li>" + first + "</li>" +
+                                "<li>" + second + "</li>" +
+                                "<li>" + third + "</li>" +
+                            "</ol>" +
                     "</body>" +
                 "</html>";
     }
