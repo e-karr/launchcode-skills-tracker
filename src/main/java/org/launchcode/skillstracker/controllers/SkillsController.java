@@ -29,7 +29,7 @@ public class SkillsController {
     public String displayForm() {
         return "<html>" +
                     "<body>" +
-                        "<form  method='post' action='form'>" +
+                        "<form  method='post' action='favorite'>" +
                             "<label>Name:</label>" +
                             "<input type='text' name='name'><br>" +
                             "<label>My favorite language:</label>" +
@@ -56,16 +56,29 @@ public class SkillsController {
                 "</html>";
     }
 
-    @PostMapping("form")
+    @PostMapping("favorite")
     public String listLanguages(@RequestParam String name, @RequestParam String first, @RequestParam String second, @RequestParam String third) {
         return "<html>" +
                     "<body>" +
                         "<h1>" + name + "</h1>" +
-                            "<ol>" +
-                                "<li>" + first + "</li>" +
-                                "<li>" + second + "</li>" +
-                                "<li>" + third + "</li>" +
-                            "</ol>" +
+                        "<table>" +
+                            "<tr>" +
+                                "<th>Favorite</th>" +
+                                "<th>Language</th>" +
+                            "</tr>" +
+                            "<tr>" +
+                                "<td>First</td>" +
+                                "<td>" + first + "</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                                "<td>Second</td>" +
+                                "<td>" + second + "</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                                "<td>Third</td>" +
+                                "<td>" + third + "</td>" +
+                            "</tr>" +
+                        "</table>" +
                     "</body>" +
                 "</html>";
     }
